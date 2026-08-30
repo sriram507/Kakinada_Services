@@ -10,7 +10,7 @@ import './App.css';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Kakinada_Services">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
