@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://kakinada-services-2.onrender.com/api',
 });
 
 // Attach the saved token to every request automatically, if we have one
