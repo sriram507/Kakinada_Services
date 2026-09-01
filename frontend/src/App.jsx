@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,7 +10,7 @@ import './App.css';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename="/Kakinada_Services">
+        <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/tailor" element={<TailorCategory />} />
           <Route path="/tailor/book" element={<BookTailor />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
