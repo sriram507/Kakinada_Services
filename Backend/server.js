@@ -1,3 +1,4 @@
+const dns = require('node:dns').promises;
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -21,6 +22,23 @@ app.use('/api/leads', leadRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+const dns = require('node:dns');
+
+dns.setServers(['8.8.8.8', '1.1.1.1']);
+
+require('dotenv').config();
+
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+dns.resolveSrv('_mongodb._tcp.cluster0.dtctqqd.mongodb.net')
+  .then(records => {
+    console.log('MongoDB DNS records:', records);
+  })
+  .catch(err => {
+    console.error('MongoDB DNS diagnostic:', err.code, err.message);
+  });
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
